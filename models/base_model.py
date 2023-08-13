@@ -1,17 +1,12 @@
-#!/usr/bin/env python3
-"""
-This module contains a base class called
-'BaseModel'that defines all common
-attributes/methods for other classes.
-"""
-
-import uuid
+#!/usr/bin/python3
+"""Defines the BaseModel class and commom attrubte """
+import models
+from uuid import uuid4
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
-"""Represents the BaseModel of the HBnB project."""
+    """Represents the BaseModel of the HBnB project."""
 
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel.
@@ -34,7 +29,7 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """Update updated_at with the current datetime and save the instance."""
+        """Update updated_at with the current datetime."""
         self.updated_at = datetime.today()
         models.storage.save()
 
